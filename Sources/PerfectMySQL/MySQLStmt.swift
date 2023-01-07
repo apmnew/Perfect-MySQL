@@ -506,7 +506,7 @@ public final class MySQLStmt {
 		let binds: UnsafeMutablePointer<MYSQL_BIND>
 		
 		let lengthBuffers: UnsafeMutablePointer<UInt>
-		let isNullBuffers: UnsafeMutablePointer<my_bool>
+		let isNullBuffers: UnsafeMutablePointer<CBool>
 		private var closed = false
 		
 		init(_ s: MySQLStmt) {
@@ -514,7 +514,7 @@ public final class MySQLStmt {
 			numFields = Int(stmt.fieldCount())
 			binds = UnsafeMutablePointer<MYSQL_BIND>.allocate(capacity: numFields)
 			lengthBuffers = UnsafeMutablePointer<UInt>.allocate(capacity: numFields)
-			isNullBuffers = UnsafeMutablePointer<my_bool>.allocate(capacity: numFields)
+			isNullBuffers = UnsafeMutablePointer<CBool>.allocate(capacity: numFields)
 			mysql_stmt_store_result(stmt.ptr)
 			bind()
 		}
