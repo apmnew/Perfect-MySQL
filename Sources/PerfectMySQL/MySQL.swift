@@ -11,7 +11,7 @@
 	import Darwin
 #endif
 import mysqlclient
-
+typealias my_bool = CBool
 /// Provide access to MySQL connector functions
 public final class MySQL {
 	private static var initOnce: Bool = {
