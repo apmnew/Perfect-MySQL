@@ -12,6 +12,7 @@
 #endif
 import mysqlclient
 
+typealias my_bool = CBool
 /// handles mysql prepared statements
 public final class MySQLStmt {
 	private let ptr: UnsafeMutablePointer<MYSQL_STMT>
